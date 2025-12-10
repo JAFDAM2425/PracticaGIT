@@ -21,7 +21,7 @@ namespace EjercicioTelegrama
         {
             string textoTelegrama;
 
-            char tipoTelegrama = ' ';
+            char tipoTelegrama = 'o';
             int numPalabras = 0;
             double coste;
 
@@ -32,8 +32,10 @@ namespace EjercicioTelegrama
             {
                 tipoTelegrama = 'u';
             }
-            //Obtengo el número de palabras que forma el telegrama  
-            numPalabras = textoTelegrama.Length;
+
+            //Obtengo el número de palabras que forma el telegrama            
+            string[] palabras = textoTelegrama.Split(' '); //separa las palabras y las introduce en una estructura 
+            numPalabras = palabras.Length; //Obtiene la longitud de la estructura, que será el número de palabras.
 
             //Si el telegrama es ordinario 
             if (tipoTelegrama == 'o')
@@ -44,7 +46,7 @@ namespace EjercicioTelegrama
                 }
                 else
                 {
-                    coste = 0.5 * numPalabras;
+                    coste = 0.5 * (numPalabras - 10) + 2.5;
                 }
             }
             else
